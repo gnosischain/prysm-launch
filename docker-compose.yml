@@ -18,12 +18,12 @@ services:
     ports:
       - '12000:12000/udp'
       - '13000:13000'
-      - '4000:4000'
-      - '3500:3500'
-      - '8080:8080'
+      - '127.0.0.1:4000:4000'
+      - '127.0.0.1:3500:3500'
+      - '127.0.0.1:8080:8080'
     volumes:
-      - /root/sbc/config:/root/sbc/config
-      - /root/sbc/node_db:/home/.eth2/beaconchaindata
+      - ./config:/root/sbc/config
+      - ./node_db:/home/.eth2/beaconchaindata
     logging:
       driver: syslog
       options: { tag: '{{.Name}}/{{.ID}}' }
@@ -36,8 +36,8 @@ services:
       --account-password-file /root/sbc/keys/keystore_password.txt
       --wallet-password-file /root/sbc/keys/wallet_password.txt
     volumes:
-      - /root/sbc/keys:/root/sbc/keys
-      - /root/sbc/wallet:/home/.eth2validators/prysm-wallet-v2
+      - ./keys:/root/sbc/keys
+      - ./wallet:/home/.eth2validators/prysm-wallet-v2
   validator-list:
     image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
     command: |
@@ -45,8 +45,8 @@ services:
       --accept-terms-of-use
       --wallet-password-file /root/sbc/keys/wallet_password.txt
     volumes:
-      - /root/sbc/keys:/root/sbc/keys
-      - /root/sbc/wallet:/home/.eth2validators/prysm-wallet-v2
+      - ./keys:/root/sbc/keys
+      - ./wallet:/home/.eth2validators/prysm-wallet-v2
   validator:
     image: gcr.io/prysmaticlabs/prysm/validator:v1.3.11
     command: |
@@ -56,7 +56,7 @@ services:
       --wallet-password-file /root/sbc/keys/wallet_password.txt
       --beacon-rpc-provider node:4000
     volumes:
-      - /root/sbc/config:/root/sbc/config
-      - /root/sbc/keys:/root/sbc/keys
-      - /root/sbc/wallet:/home/.eth2validators/prysm-wallet-v2
+      - ./config:/root/sbc/config
+      - ./keys:/root/sbc/keys
+      - ./wallet:/home/.eth2validators/prysm-wallet-v2
 
