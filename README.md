@@ -2,6 +2,8 @@
 
 This document describes how to run Prysm beacon node + Prysm validator for the Stake Beacon Chain.
 
+See a similar repo with Lighthoust node setup - https://github.com/canarynetwork/sbc-lighthouse
+
 ## Assumptions
 * This document assumes that you already have an xDai node available for your use (or public JSON RPC endpoint)
 * You have already generated your validator accounts using the fork of the official deposit-cli - https://github.com/canarynetwork/eth2.0-deposit-cli. You will need validator keystores and passwords for them to run the validator client.
