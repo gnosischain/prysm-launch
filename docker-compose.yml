@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   node:
-    image: ghcr.io/canarynetwork/prysm-beacon-chain:v2.0.0rc1-unstable2
+    image: ghcr.io/openethereum/sbc-prysm-beacon-chain:v2.0.0rc1-unstable3
     command: |
       --accept-terms-of-use
       --contract-deployment-block $DEPLOYMENT_BLOCK
@@ -28,7 +28,7 @@ services:
       driver: syslog
       options: { tag: '{{.Name}}/{{.ID}}' }
   validator-import:
-    image: ghcr.io/canarynetwork/prysm-validator:v2.0.0rc1-unstable2
+    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.0rc1-unstable3
     command: |
       accounts import
       --accept-terms-of-use
@@ -39,7 +39,7 @@ services:
       - ./keys:/root/sbc/keys
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
   validator-list:
-    image: ghcr.io/canarynetwork/prysm-validator:v2.0.0rc1-unstable2
+    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.0rc1-unstable3
     command: |
       accounts list
       --accept-terms-of-use
@@ -48,7 +48,7 @@ services:
       - ./keys:/root/sbc/keys
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
   validator:
-    image: ghcr.io/canarynetwork/prysm-validator:v2.0.0rc1-unstable2
+    image: ghcr.io/openethereum/sbc-prysm-validator:v2.0.0rc1-unstable3
     command: |
       --accept-terms-of-use
       --config-file /root/sbc/config/config.yml

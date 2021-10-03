@@ -2,11 +2,11 @@
 
 This document describes how to run Prysm beacon node + Prysm validator for the Stake Beacon Chain.
 
-See a similar repo with Lighthoust node setup - https://github.com/canarynetwork/sbc-lighthouse
+See a similar repo with Lighthouse node setup - https://github.com/openethereum/sbc-lighthouse-launch
 
 ## Assumptions
 * This document assumes that you already have an xDai node available for your use (or public JSON RPC endpoint)
-* You have already generated your validator accounts using the fork of the official deposit-cli - https://github.com/canarynetwork/eth2.0-deposit-cli. You will need validator keystores and passwords for them to run the validator client.
+* You have already generated your validator accounts using the fork of the official deposit-cli - https://github.com/openethereum/sbc-deposit-cli. You will need validator keystores and passwords for them to run the validator client.
 * You might start your node and validator first, and only them make a deposit, once everything works.
 * You have a persistent linux VM with docker installed on it, which is accessible from the public internet via a fixed IP address. We recommend using a VM with at least 4 vCPU, 8 GB RAM, 100 GB SSD
 
@@ -15,7 +15,7 @@ See a similar repo with Lighthoust node setup - https://github.com/canarynetwork
 2) Clone the repository with all necessary configs:
 ```bash
 cd /root/sbc
-git clone https://github.com/canarynetwork/sbc-prysm .
+git clone https://github.com/openethereum/sbc-prysm-launch .
 ```
 3) Generate wallet password and place it in the `./keys/wallet_password.txt`
 4) Copy all validators keystore files to the `./keys/validator_keys` directory. Ensure that copied keystores are only used on a single VM instance.
