@@ -25,10 +25,8 @@ services:
       - ./config:/root/sbc/config
       - ./node_db:/home/.eth2/beaconchaindata
     logging:
-      driver: "json-file"
-      options:
-        max-size: "100m"
-        max-file: "1"
+      driver: syslog
+      options: { tag: '{{.Name}}/{{.ID}}' }
   validator-import:
     image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.4-gbc
     command: |
@@ -62,9 +60,6 @@ services:
       - ./keys:/root/sbc/keys
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
     logging:
-      driver: "json-file"
-      options:
-        max-size: "100m"
-        max-file: "1"
-
+      driver: syslog
+      options: { tag: '{{.Name}}/{{.ID}}' }
 
