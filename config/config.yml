@@ -67,7 +67,7 @@ BLS_WITHDRAWAL_PREFIX: 0x00
 # Time parameters
 # ---------------------------------------------------------------
 # Customized for GBC: ~1 hour
-GENESIS_DELAY: 3600
+GENESIS_DELAY: 6000
 # 5 seconds
 SECONDS_PER_SLOT: 5
 # 2**0 (= 1) slots 12 seconds
