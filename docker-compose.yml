@@ -10,6 +10,7 @@ services:
       --config-file /root/sbc/config/config.yml
       --chain-config-file /root/sbc/config/config.yml
       --rpc-host 0.0.0.0
+      --grpc-gateway-host 0.0.0.0
       --p2p-local-ip 0.0.0.0
       --p2p-host-ip $PUBLIC_IP
       --subscribe-all-subnets
