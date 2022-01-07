@@ -58,6 +58,11 @@ services:
       --chain-config-file /root/sbc/config/config.yml
       --wallet-password-file /root/sbc/keys/wallet_password.txt
       --beacon-rpc-provider node:4000
+      --grpc-gateway-host 0.0.0.0
+      --monitoring-host 0.0.0.0
+    ports:
+      - '7500:7500'
+      - '127.0.0.1:8081:8081'
     volumes:
       - ./config:/root/sbc/config
       - ./keys:/root/sbc/keys
