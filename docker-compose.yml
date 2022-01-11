@@ -6,6 +6,7 @@ services:
       --accept-terms-of-use
       --contract-deployment-block $DEPLOYMENT_BLOCK
       --http-web3provider $XDAI_RPC_URL
+      --fallback-web3provider $FALLBACK_XDAI_RPC_URL
       --bootstrap-node /root/sbc/config/bootnodes.yaml
       --config-file /root/sbc/config/config.yml
       --chain-config-file /root/sbc/config/config.yml
@@ -13,7 +14,6 @@ services:
       --grpc-gateway-host 0.0.0.0
       --p2p-local-ip 0.0.0.0
       --p2p-host-ip $PUBLIC_IP
-      --subscribe-all-subnets
       --monitoring-host 0.0.0.0
       --verbosity $LOG_LEVEL
     ports:
