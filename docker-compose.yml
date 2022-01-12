@@ -57,6 +57,7 @@ services:
       --config-file /root/sbc/config/config.yml
       --chain-config-file /root/sbc/config/config.yml
       --wallet-password-file /root/sbc/keys/wallet_password.txt
+      --graffiti-file=/root/sbc/config/graffiti.yml
       --beacon-rpc-provider node:4000
     volumes:
       - ./config:/root/sbc/config
