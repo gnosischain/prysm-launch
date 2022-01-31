@@ -1,7 +1,8 @@
 version: '3.8'
 services:
   node:
-    image: ghcr.io/gnosischain/gbc-prysm-beacon-chain:v2.0.4-gbc
+    image: ghcr.io/gnosischain/gbc-prysm-beacon-chain:v2.0.5-gbc
+    restart: always
     command: |
       --accept-terms-of-use
       --contract-deployment-block $DEPLOYMENT_BLOCK
@@ -31,7 +32,7 @@ services:
         max-size: "100m"
         max-file: "1"
   validator-import:
-    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.4-gbc
+    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.5-gbc
     command: |
       accounts import
       --accept-terms-of-use
@@ -42,7 +43,7 @@ services:
       - ./keys:/root/sbc/keys
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
   validator-list:
-    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.4-gbc
+    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.5-gbc
     command: |
       accounts list
       --accept-terms-of-use
@@ -51,7 +52,8 @@ services:
       - ./keys:/root/sbc/keys
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
   validator:
-    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.4-gbc
+    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.5-gbc
+    restart: always
     command: |
       --accept-terms-of-use
       --config-file /root/sbc/config/config.yml
