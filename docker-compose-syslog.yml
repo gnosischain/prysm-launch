@@ -14,6 +14,7 @@ services:
       --rpc-host 0.0.0.0
       --p2p-local-ip 0.0.0.0
       --p2p-host-ip $PUBLIC_IP
+      --p2p-max-peers $TARGET_PEERS
       --monitoring-host 0.0.0.0
       --verbosity $LOG_LEVEL
     ports:
