@@ -17,6 +17,7 @@ services:
       --p2p-max-peers $TARGET_PEERS
       --monitoring-host 0.0.0.0
       --verbosity $LOG_LEVEL
+      --subscribe-all-subnets
     ports:
       - '12000:12000/udp'
       - '13000:13000'

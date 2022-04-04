@@ -45,10 +45,10 @@ SECONDS_PER_ETH1_BLOCK: 6
 # Deposit contract
 # ---------------------------------------------------------------
 # xDai Mainnet
-DEPOSIT_CHAIN_ID: 100
-DEPOSIT_NETWORK_ID: 100
+DEPOSIT_CHAIN_ID: 102
+DEPOSIT_NETWORK_ID: 102
 # GBC deposit contract on xDai Mainnet
-DEPOSIT_CONTRACT_ADDRESS: 0x0B98057eA310F4d31F2a452B414647007d1645d9
+DEPOSIT_CONTRACT_ADDRESS: 0x221fb77b9A6a7aAE7774a852bb2861b940d73e9f
 # Gwei values
 # ---------------------------------------------------------------
 # 2**0 * 10**9 (= 1,000,000,000) Gwei
@@ -62,12 +62,12 @@ EFFECTIVE_BALANCE_INCREMENT: 1000000000
 # Initial values
 # ---------------------------------------------------------------
 # GBC area code
-GENESIS_FORK_VERSION: 0x00000064
+GENESIS_FORK_VERSION: 0x00006464
 BLS_WITHDRAWAL_PREFIX: 0x00
 # Time parameters
 # ---------------------------------------------------------------
 # Customized for GBC: ~1 hour
-GENESIS_DELAY: 6000
+GENESIS_DELAY: 54400
 # 5 seconds
 SECONDS_PER_SLOT: 5
 # 2**0 (= 1) slots 12 seconds
@@ -138,7 +138,7 @@ DOMAIN_SYNC_COMMITTEE: 0x07000000
 DOMAIN_SYNC_COMMITTEE_SELECTION_PROOF: 0x08000000
 DOMAIN_CONTRIBUTION_AND_PROOF: 0x09000000
 
-ALTAIR_FORK_VERSION: 0x01000064
+ALTAIR_FORK_VERSION: 0x01006464
 ALTAIR_FORK_EPOCH: 512
 
 INACTIVITY_SCORE_BIAS: 4
