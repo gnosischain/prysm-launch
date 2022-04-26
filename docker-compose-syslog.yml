@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   node:
-    image: ghcr.io/gnosischain/gbc-prysm-beacon-chain:v2.0.6-gbc
+    image: ghcr.io/gnosischain/gbc-prysm-beacon-chain:v2.1.0-gbc
     restart: always
     command: |
       --accept-terms-of-use
@@ -12,6 +12,7 @@ services:
       --config-file /root/sbc/config/config.yml
       --chain-config-file /root/sbc/config/config.yml
       --rpc-host 0.0.0.0
+      --grpc-gateway-host 0.0.0.0
       --p2p-local-ip 0.0.0.0
       --p2p-host-ip $PUBLIC_IP
       --p2p-max-peers $TARGET_PEERS
@@ -30,7 +31,7 @@ services:
       driver: syslog
       options: { tag: '{{.Name}}/{{.ID}}' }
   validator-import:
-    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.6-gbc
+    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.1.0-gbc
     command: |
       accounts import
       --accept-terms-of-use
@@ -41,7 +42,7 @@ services:
       - ./keys:/root/sbc/keys
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
   validator-list:
-    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.6-gbc
+    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.1.0-gbc
     command: |
       accounts list
       --accept-terms-of-use
@@ -50,7 +51,7 @@ services:
       - ./keys:/root/sbc/keys
       - ./wallet:/home/.eth2validators/prysm-wallet-v2
   validator:
-    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.0.6-gbc
+    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.1.0-gbc
     restart: always
     command: |
       --accept-terms-of-use
