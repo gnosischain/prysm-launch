@@ -61,6 +61,7 @@ services:
       --graffiti-file=/root/sbc/config/graffiti.yml
       --beacon-rpc-provider node:4000
       --enable-doppelganger
+      --enable-slashing-protection-history-pruning
     volumes:
       - ./config:/root/sbc/config
       - ./keys:/root/sbc/keys
@@ -68,4 +69,33 @@ services:
     logging:
       driver: syslog
       options: { tag: '{{.Name}}/{{.ID}}' }
-
+  validator-import-slashing-protection:
+    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.1.0-gbc
+    command: |
+      slashing-protection-history import
+      --accept-terms-of-use
+      --datadir /home/.eth2validators/prysm-wallet-v2
+      --slashing-protection-json-file /root/sbc/config/slashing_protection.json
+    volumes:
+      - ./config:/root/sbc/config
+      - ./wallet:/home/.eth2validators/prysm-wallet-v2/direct
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
+  validator-export-slashing-protection:
+    image: ghcr.io/gnosischain/gbc-prysm-validator:v2.1.0-gbc
+    command: |
+      slashing-protection-history export
+      --accept-terms-of-use
+      --datadir /home/.eth2validators/prysm-wallet-v2/direct
+      --slashing-protection-export-dir /root/sbc/config
+    volumes:
+      - ./config:/root/sbc/config
+      - ./wallet:/home/.eth2validators/prysm-wallet-v2
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "1"
