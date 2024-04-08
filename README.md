@@ -1,3 +1,7 @@
+# DEPRECATED
+> [!WARNING]  
+> This is no longer supported as native Gnosis Chain support has been introduced. Please consider using the interactive guide provided in [documentation](https://docs.gnosischain.com/node/manual/).
+
 # Running a Prysm client for GBC
 
 This document describes how to run Prysm beacon node + Prysm validator for the Gnosis Beacon Chain.
